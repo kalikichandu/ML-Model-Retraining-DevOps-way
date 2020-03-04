@@ -16,7 +16,8 @@ pipeline {
       stage('Push_Model_to_git')
       {
          steps{
-             sh Only_CD/git.sh 2
+             pwd
+             //sh Only_CD/git.sh 2
          }
       }
       stage('Publish_over_SSH')
