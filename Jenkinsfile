@@ -15,14 +15,14 @@ pipeline {
       }
       stage('Push_Model_to_git')
       {
-         steps{
+         step{
              pwd
              //sh Only_CD/git.sh 2
          }
       }
       stage('Publish_over_SSH')
       {
-         steps{
+         step{
              //sh Only_CD/git.sh
              echo 'Need to publish over SSH'
          }
