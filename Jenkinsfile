@@ -5,24 +5,34 @@ pipeline {
       stage('Retraining') {
          steps {
            
-            //git 'https://github.com/kalikichandu/ML-Model-Retraining-DevOps-way.git'
+            git 'https://github.com/kalikichandu/ML-Model-Retraining-DevOps-way.git'
             
-            dir('ML-Model-Retraining-DevOps-way') {
+            dir('Only_CD') {
                 // some block               
-                  sh Only_CD/Retraining.sh
-            }
+                    script{
+                        sh 'pwd'
+                        sh 'ls -lah'
+                        //if (fileExists('Retraining.sh')) {
+                        //    echo 'Yes'
+                        //} 
+                       // else {
+                       //     echo 'No'
+                        //}
+                        sh 'Retraining.sh'
+                    }
+                }
          }         
       }
       stage('Push_Model_to_git')
       {
-         step{
+         steps{
              pwd
              //sh Only_CD/git.sh 2
          }
       }
       stage('Publish_over_SSH')
       {
-         step{
+         steps{
              //sh Only_CD/git.sh
              echo 'Need to publish over SSH'
          }
