@@ -1,2 +1,2 @@
-#!/bin/bash
-python sample.py
+#!/bin/sh
+python3 Only_CD/train.py

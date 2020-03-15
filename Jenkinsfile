@@ -26,7 +26,7 @@ pipeline {
       stage('Push_Model_to_git')
       {
          steps{
-             pwd
+             sh 'pwd'
              //sh Only_CD/git.sh 2
          }
       }
