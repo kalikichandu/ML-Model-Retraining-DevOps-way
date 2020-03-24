@@ -1,15 +1,23 @@
 pipeline {
-   agent {
-      dockerfile true
-   }
+    agent any
 
    stages {
-      stage('Retraining') {
+      stage('Clone Retraining Code'){
+
          steps {
            
             git 'https://github.com/kalikichandu/ML-Model-Retraining-DevOps-way.git'
-            
-            
+            sh 'pwd'
+            sh 'ls -lah'
+            sh 'chmod 700 ${WORKSPACE}/Dockerfile'
+         }
+      } 
+
+      stage('Retraining') {
+         
+         agent { dockerfile true }
+         steps {
+                sh 'pwd'
                 // some block               
                     script{
                         sh 'pwd'
@@ -29,11 +37,16 @@ pipeline {
                 
          }         
       }
-      stage('Push_Model_to_git')
+      stage('Push_Model_to_Blob')
       {
          steps{
+             script{
              sh 'pwd'
-             //sh Only_CD/git.sh 2
+             sh 'chmod 700 ${WORKSPACE}/Only_CD/blob_push.py'
+                        //sh 'chmod 700 ${WORKSPACE}/Only_CD/Retraining.sh'
+                        sh 'python3 ${WORKSPACE}/Only_CD/blob_push.py'
+                        sh 'ls -lah'
+             }
          }
       }
       stage('Publish_over_SSH')
