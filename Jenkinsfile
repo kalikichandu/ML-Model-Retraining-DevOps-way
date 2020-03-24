@@ -1,5 +1,7 @@
 pipeline {
-   agent any
+   agent {
+      dockerfile true
+   }
 
    stages {
       stage('Retraining') {
@@ -7,7 +9,7 @@ pipeline {
            
             git 'https://github.com/kalikichandu/ML-Model-Retraining-DevOps-way.git'
             
-            dir('Only_CD') {
+            
                 // some block               
                     script{
                         sh 'pwd'
@@ -18,9 +20,13 @@ pipeline {
                        // else {
                        //     echo 'No'
                         //}
-                        sh 'Retraining.sh'
+                        //sh '/var/lib/jenkins/workspace/DevOps_for_ML/Only_CD/Retraining.sh'
+                        sh 'chmod 700 ${WORKSPACE}/Only_CD/Retraining.sh'
+                        //sh 'chmod 700 ${WORKSPACE}/Only_CD/Retraining.sh'
+                        sh '${WORKSPACE}/Only_CD/Retraining.sh'
+                        sh 'ls -lah'
                     }
-                }
+                
          }         
       }
       stage('Push_Model_to_git')
