@@ -5,7 +5,7 @@ pipeline {
       stage('Clone Retraining Code'){
 
          steps {
-           
+            cleanWs()
             git 'https://github.com/kalikichandu/ML-Model-Retraining-DevOps-way.git'
             sh 'pwd'
             sh 'ls -lah'
