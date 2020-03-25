@@ -32,7 +32,7 @@ pipeline {
                 
          }         
       
-         steps{
+         
              script{
                   echo "Pusing model files to Blob Storage"
                   sh 'pwd'
@@ -41,7 +41,7 @@ pipeline {
                   sh 'python3 ${WORKSPACE}/Only_CD/blob_push.py'
                   sh 'ls -lah'
              }
-         }
+         
       }
       stage('Publish_over_SSH')
       {
