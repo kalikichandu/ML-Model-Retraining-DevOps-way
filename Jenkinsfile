@@ -22,13 +22,7 @@ pipeline {
                     script{
                         sh 'pwd'
                         sh 'ls -lah'
-                        //if (fileExists('Retraining.sh')) {
-                        //    echo 'Yes'
-                        //} 
-                       // else {
-                       //     echo 'No'
-                        //}
-                        //sh '/var/lib/jenkins/workspace/DevOps_for_ML/Only_CD/Retraining.sh'
+                        
                         sh 'chmod 700 ${WORKSPACE}/Only_CD/Retraining.sh'
                         //sh 'chmod 700 ${WORKSPACE}/Only_CD/Retraining.sh'
                         sh '${WORKSPACE}/Only_CD/Retraining.sh'
