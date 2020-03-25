@@ -27,19 +27,19 @@ pipeline {
                         //sh 'chmod 700 ${WORKSPACE}/Only_CD/Retraining.sh'
                         sh '${WORKSPACE}/Only_CD/Retraining.sh'
                         sh 'ls -lah'
+                        echo "Retraining Completed"
                     }
                 
          }         
-      }
-      stage('Push_Model_to_Blob')
-      {
+      
          steps{
              script{
-             sh 'pwd'
-             sh 'chmod 700 ${WORKSPACE}/Only_CD/blob_push.py'
-                        //sh 'chmod 700 ${WORKSPACE}/Only_CD/Retraining.sh'
-                        sh 'python3 ${WORKSPACE}/Only_CD/blob_push.py'
-                        sh 'ls -lah'
+                  echo "Pusing model files to Blob Storage"
+                  sh 'pwd'
+                  sh 'chmod 700 ${WORKSPACE}/Only_CD/blob_push.py'
+                  //sh 'chmod 700 ${WORKSPACE}/Only_CD/Retraining.sh'
+                  sh 'python3 ${WORKSPACE}/Only_CD/blob_push.py'
+                  sh 'ls -lah'
              }
          }
       }
