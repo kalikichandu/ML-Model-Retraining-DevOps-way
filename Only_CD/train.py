@@ -37,5 +37,5 @@ MAE = mean_absolute_error(preds,test_y)
 
 import pickle
 
-with open('rf.pkl','wb') as rfpkl:
+with open('Only_CD/rf.pkl','wb') as rfpkl:
     pickle.dump(model,rfpkl)

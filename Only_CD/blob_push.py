@@ -15,11 +15,11 @@ for container in containers:
 
 # Create a unique name for the container
 container_name = "ml-models"
-
+container_client = blob_service_client.get_container_client(container_name)
 # Create the container
 try:
     if container_name not in list_container:
-        container_client = blob_service_client.get_container_client(container_name)
+        
         container_client.create_container()
         print("Created New Container")
     else:
@@ -30,7 +30,7 @@ except:
     print(sys.exc_info())
 
 try:
-    local_file_name = 'model.pkl'
+    local_file_name = 'rf.pkl'
     blob_client = blob_service_client.get_blob_client(container=container_name, blob=local_file_name)
 
     print("\nUploading to Azure Storage as blob:\n\t" + local_file_name)
