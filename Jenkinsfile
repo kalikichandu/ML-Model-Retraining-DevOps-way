@@ -37,22 +37,20 @@ pipeline {
                         sh 'python3 ${WORKSPACE}/Only_CD/blob_push.py'
                         sh 'ls -lah'
                      }
+                     script{
+                sh 'chmod 700 ${WORKSPACE}/Only_CD/rf.pkl'
+                sh 'scp ${WORKSPACE}/Only_CD/rf.pkl azure_prod@104.43.164.138:/var/snap/docker/common/var-lib-docker/volumes/ml_vol/_data/models/'
+                echo 'published over SSH'
+             }
+             
                 
          }         
              
          
       }
-      stage('Publish_over_SSH')
-      {
-         steps{
-             //sh Only_CD/git.sh
-             script{
-                sh 'chmod 700 ${WORKSPACE}/Only_CD/rf.pkl'
-                sh 'scp ${WORKSPACE}/Only_CD/rf.pkl azure_prod@104.43.164.138:/var/snap/docker/common/var-lib-docker/volumes/ml_vol/_data/models/'
-             }
-             echo 'published over SSH'
-         }
-      }
+     
+       
+      
 
    }
 }
