@@ -17,7 +17,7 @@ pipeline {
 
       stage('Retraining') {
          
-         agent { dockerfile true }
+         agent { dockerfile true args '-u root:sudo'}
          steps {
                 sh 'pwd'
                 // some block               
