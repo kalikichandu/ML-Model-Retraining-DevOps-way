@@ -43,6 +43,7 @@ pipeline {
              
                 
          }
+         stage('publish over SSH') {
          steps {
             script{
                 
@@ -56,6 +57,7 @@ pipeline {
 
             
          }         
+         }
              
          
       }
