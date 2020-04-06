@@ -11,19 +11,17 @@ We have created a Dockerfile to do the Model Retraining inside a Docker Containe
 
       Use the below resource to set up Public-Private Key pair Authentication between Prod/QA server and Jenkins server.
   
-		https://www.tecmint.com/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps/
+      https://www.tecmint.com/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps/
     
 • 	Create a Docker Volume in Prod/QA server and have the path ready to move the model file.
 
    steps:
    
-    1.	docker  volume create {volume_name}  	
-    
-            //Command  to Create Docker Volume
+    1.docker  volume create {volume_name}  	
+    //Command  to Create Docker Volume
         
-    2.	docker volume inspect {volume_name}
-    
-            //Command to see Docker Volume Path
+    2.docker volume inspect {volume_name}
+    //Command to see Docker Volume Path
         
 # Model Retraining Steps:
 1.	Clean the workspace.
