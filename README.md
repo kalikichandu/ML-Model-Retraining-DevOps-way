@@ -1,11 +1,14 @@
 # ML-Model-Retraining-DevOps-way
 
+## Architecture Diagram
+
+![Architecture](https://github.com/kalikichandu/ML-Model-Retraining-DevOps-way/blob/master/Readme%20Content/ML%20Model%20Retraining%20Flow.png)
  
 Whenever the data is available for model Retraining 'Model Retraining Pipeline' can be triggered from Jenkins UI.
 
 We have created a Dockerfile to do the Model Retraining inside a Docker Container.
 
-# Prerequisites for Model  Retraining Pipeline:
+## Prerequisites for Model  Retraining Pipeline:
 
 •	  Should be able to connect to Prod/QA Server from Jenkins server through SSH without Password.
 
@@ -23,7 +26,7 @@ We have created a Dockerfile to do the Model Retraining inside a Docker Containe
     2.docker volume inspect {volume_name}
     //Command to see Docker Volume Path
         
-# Model Retraining Steps:
+## Model Retraining Steps:
 1.	Clean the workspace.
 2.	Pull the Model Retraining code to Jenkins Workspace from Github.
 3.	Running below steps in Docker Container:
