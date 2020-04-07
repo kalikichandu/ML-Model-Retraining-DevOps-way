@@ -2,8 +2,7 @@ import os, uuid
 import sys
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 
-connect_str = 'DefaultEndpointsProtocol=https;AccountName=mldevopsdiag;AccountKey=8+VHBI66BxOPkiiCeGDdn+fqcZIEEZ2Sa0qL2vRtuju2k6WcxGKHRVC1W+Kay8OeQBkf6AU/4dpl31RtpK8tuA==;EndpointSuffix=core.windows.net'
-#Azure Blob Storage Connection String
+connect_str = ''#Azure Blob Storage Connection String
 
 # Create the BlobServiceClient object which will be used to create a container client
 blob_service_client = BlobServiceClient.from_connection_string(connect_str)
