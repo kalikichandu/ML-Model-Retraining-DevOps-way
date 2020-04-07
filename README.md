@@ -2,7 +2,7 @@
 
 ## Architecture Diagram
 
-![Architecture](https://github.com/kalikichandu/ML-Model-Retraining-DevOps-way/blob/master/Readme%20Content/ML%20Model%20Retraining%20Flow.png)
+![Architecture](Readme%20Content/ML%20Model%20Retraining%20Flow.png)
  
 Whenever the data is available for model Retraining 'Model Retraining Pipeline' can be triggered from Jenkins UI.
 
